@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HelpBot | NorthWind Lab</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { margin-bottom: 0; }
+  .sub { color: #666; margin-top: .25rem; }
+  #log { border: 1px solid #ccc; border-radius: 6px; padding: 1rem; min-height: 240px; max-height: 60vh; overflow-y: auto; }
+  .msg { margin: .5rem 0; white-space: pre-wrap; }
+  .you { font-weight: 600; }
+  .err { color: #b00020; }
+  form { display: flex; gap: .5rem; margin-top: 1rem; }
+  input[type=text] { flex: 1; padding: .5rem; }
+  button { padding: .5rem 1rem; }
+  fieldset { margin-top: 1.5rem; border: 1px solid #ccc; border-radius: 6px; }
+</style>
+</head>
+<body>
+<h1>HelpBot</h1>
+<p class="sub">NorthWind Lab customer support. Fictional training target, runs locally.</p>
+
+<div id="log" aria-live="polite"></div>
+
+<form id="chat">
+  <label for="message" hidden>Message</label>
+  <input id="message" type="text" placeholder="Ask HelpBot about your order..." autocomplete="off" required>
+  <button>Send</button>
+</form>
+
+<fieldset>
+  <legend>Summarize a document (.txt)</legend>
+  <form id="doc">
+    <label for="file" hidden>Document</label>
+    <input id="file" name="file" type="file" accept=".txt,text/plain" required>
+    <button>Summarize</button>
+  </form>
+</fieldset>
+
+<script>
+const log = document.getElementById("log");
+function add(text, cls) {
+  const p = document.createElement("p");
+  p.className = "msg " + (cls || "");
+  p.textContent = text;
+  log.appendChild(p);
+  log.scrollTop = log.scrollHeight;
+}
+async function send(url, opts, label) {
+  add(label, "you");
+  try {
+    const r = await fetch(url, opts);
+    const data = await r.json();
+    data.error ? add(data.error, "err") : add("HelpBot: " + data.reply);
+  } catch (e) {
+    add("Request failed: " + e, "err");
+  }
+}
+document.getElementById("chat").onsubmit = e => {
+  e.preventDefault();
+  const box = document.getElementById("message");
+  const message = box.value;
+  box.value = "";
+  send("/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message }) }, "You: " + message);
+};
+document.getElementById("doc").onsubmit = e => {
+  e.preventDefault();
+  const file = document.getElementById("file").files[0];
+  send("/summarize", { method: "POST", body: new FormData(e.target) }, "You uploaded: " + file.name);
+};
+</script>
+</body>
+</html>
