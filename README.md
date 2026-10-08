@@ -2,6 +2,8 @@
 
 An open university for offensive security. Learn by building, prove it by shipping.
 
+Website: https://orgito1015.github.io/Gitoversity/ (enable GitHub Pages on branch `main`, folder `/docs`).
+
 ## How it works
 
 - Every course is a folder with four parts: `notes/`, `lab/`, `challenge/`, `writeup/`.

@@ -24,3 +24,10 @@ Short log of choices made while building Gitoversity. Newest last.
 
 ## Publish
 - Shipped as a single monorepo (`orgito1015/Gitoversity`) rather than one repo per folder. `CLAUDE.md` and the build zip are kept out of the repo via a top-level `.gitignore` and by not copying them in.
+- Added a root `README.md` as the repo landing page, since `.github/profile/README.md` only renders as a profile for a dedicated org `.github` repo, not for this monorepo.
+
+## Phase 6: Website (built early, on owner request)
+- Spec gates this behind "3 courses passed"; built now because the owner asked. Deviation noted here.
+- `docs/build.py` (stdlib only) parses `catalog/README.md` and `catalog/TRANSCRIPT.md` and writes a self-contained `docs/index.html` (inline CSS, no Jekyll, no dependencies). Status words render as colored badges; `[label](url)` cells become links; the empty transcript placeholder row is dropped.
+- Serve by enabling GitHub Pages on branch `main`, folder `/docs`. Regenerate after editing the catalog with `python3 docs/build.py`.
+- Skipped a GitHub Actions auto-deploy workflow (the catalog changes rarely); add one if manual regeneration becomes a chore.
