@@ -9,26 +9,36 @@
   :root { color-scheme: dark; --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --card:#161b22; --line:#30363d; --accent:#58a6ff; }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, sans-serif; }
-  .wrap { max-width:860px; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
-  header.hero { text-align:center; padding:1rem 0 2rem; border-bottom:1px solid var(--line); margin-bottom:2rem; }
+  .wrap { max-width:900px; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+  header.hero { text-align:center; padding:1rem 0 2rem; border-bottom:1px solid var(--line); margin-bottom:2.5rem; }
   .hero h1 { font-size:2.6rem; margin:0; letter-spacing:-.02em; }
   .hero p { color:var(--muted); font-size:1.15rem; margin:.5rem 0 0; }
-  h1 { font-size:1.9rem; }
-  h2 { font-size:1.25rem; margin-top:2.25rem; border-bottom:1px solid var(--line); padding-bottom:.35rem; }
+  .repo-link { margin-top:.75rem; }
+  h2 { font-size:1.35rem; margin:2.75rem 0 1rem; }
+  h2 .count { color:var(--muted); font-weight:400; font-size:1rem; }
+  h3 { font-size:1rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin:1.5rem 0 .5rem; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  table { width:100%; border-collapse:collapse; margin:1rem 0; background:var(--card); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
-  th, td { text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--line); }
-  th { background:#1c2333; font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:1.1rem 1.2rem; display:flex; flex-direction:column; }
+  .card-top { display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
+  .card .code { font-family:ui-monospace, monospace; font-weight:700; color:var(--accent); }
+  .card h3 { color:var(--fg); text-transform:none; letter-spacing:0; font-size:1.1rem; margin:.6rem 0 .25rem; }
+  .card .faculty { color:var(--muted); margin:0 0 1rem; font-size:.9rem; }
+  .card .cta { margin-top:auto; font-weight:600; }
+  .empty { color:var(--muted); }
+  table { width:100%; border-collapse:collapse; margin:.25rem 0 1rem; background:var(--card); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  th, td { text-align:left; padding:.55rem .8rem; border-bottom:1px solid var(--line); }
+  th { background:#1c2333; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
   tr:last-child td { border-bottom:none; }
-  .badge { display:inline-block; padding:.15rem .55rem; border-radius:999px; font-size:.78rem; font-weight:600; white-space:nowrap; }
+  .roadmap table td:first-child { font-family:ui-monospace, monospace; color:var(--muted); white-space:nowrap; }
+  .badge { display:inline-block; padding:.15rem .55rem; border-radius:999px; font-size:.75rem; font-weight:600; white-space:nowrap; }
   .badge.passed { background:#1a7f37; color:#fff; }
   .badge.built { background:#1f6feb; color:#fff; }
   .badge.progress { background:#9e6a03; color:#fff; }
   .badge.planned { background:#30363d; color:var(--muted); }
-  .repo-link { text-align:center; margin-top:.75rem; }
   footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; text-align:center; }
-  @media (max-width:520px) { .hero h1 { font-size:2rem; } th, td { padding:.5rem .55rem; } }
+  @media (max-width:520px) { .hero h1 { font-size:2rem; } }
 </style>
 </head>
 <body>
@@ -39,23 +49,33 @@
     <div class="repo-link"><a href="https://github.com/orgito1015/Gitoversity">View the repository on GitHub</a></div>
   </header>
 
-  <section><h1>Gitoversity Catalog</h1>
-<p>Status: planned, in progress, passed. Levels: 1xx foundations, 2xx intermediate, 3xx advanced.</p>
-<h2>AIRT: AI Red Teaming</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>AIRT101</td><td>Prompt Injection and Jailbreak Fundamentals</td><td><span class="badge built">built, awaiting pass</span></td></tr><tr><td>AIRT201</td><td>Attacking AI Agents and Tool Use</td><td><span class="badge planned">planned</span></td></tr><tr><td>AIRT301</td><td>Model Supply Chain and Training Data Attacks</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
-<h2>WEB: Web Application Security</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>WEB101</td><td>HTTP, Recon and the OWASP Top 10</td><td><span class="badge planned">planned</span></td></tr><tr><td>WEB201</td><td>Auth, Access Control and Business Logic</td><td><span class="badge planned">planned</span></td></tr><tr><td>WEB301</td><td>Advanced Server-Side Exploitation</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
-<h2>NET: Network and Active Directory</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>NET101</td><td>Network Recon and Service Exploitation</td><td><span class="badge planned">planned</span></td></tr><tr><td>NET201</td><td>Active Directory Attack Paths</td><td><span class="badge planned">planned</span></td></tr><tr><td>NET301</td><td>Kerberos Abuse and Domain Dominance</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
-<h2>PWN: Binary Exploitation and Reversing</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>PWN101</td><td>C, Assembly and Stack Overflows</td><td><span class="badge planned">planned</span></td></tr><tr><td>PWN201</td><td>ROP and Mitigation Bypass</td><td><span class="badge planned">planned</span></td></tr><tr><td>PWN301</td><td>Heap Exploitation</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
-<h2>CLD: Cloud Security</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>CLD101</td><td>Cloud IAM Fundamentals and Misconfigurations</td><td><span class="badge planned">planned</span></td></tr><tr><td>CLD201</td><td>Privilege Escalation in AWS and OCI</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
-<h2>OPS: Red Team Operations</h2>
-<table><thead><tr><th>Course</th><th>Title</th><th>Status</th></tr></thead><tbody><tr><td>OPS101</td><td>Engagement Planning, Scoping and OPSEC</td><td><span class="badge planned">planned</span></td></tr><tr><td>OPS201</td><td>C2 Infrastructure</td><td><span class="badge planned">planned</span></td></tr><tr><td>OPS301</td><td>Evasion and Adversary Emulation</td><td><span class="badge planned">planned</span></td></tr></tbody></table></section>
-  <section><h1>Transcript: Orgito Leka</h1>
+  <section>
+    <h2>Available now <span class="count">&middot; 1</span></h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card-top"><span class="code">AIRT101</span><span class="badge built">built, awaiting pass</span></div>
+        <h3>Prompt Injection and Jailbreak Fundamentals</h3>
+        <p class="faculty">AIRT: AI Red Teaming</p>
+        <a class="cta" href="https://github.com/orgito1015/Gitoversity/tree/main/AIRT101">Start the course &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="roadmap">
+    <h2>Roadmap <span class="count">&middot; planned courses</span></h2>
+    <h3>AIRT: AI Red Teaming</h3><table><tbody><tr><td>AIRT201</td><td>Attacking AI Agents and Tool Use</td><td><span class="badge planned">planned</span></td></tr><tr><td>AIRT301</td><td>Model Supply Chain and Training Data Attacks</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+<h3>WEB: Web Application Security</h3><table><tbody><tr><td>WEB101</td><td>HTTP, Recon and the OWASP Top 10</td><td><span class="badge planned">planned</span></td></tr><tr><td>WEB201</td><td>Auth, Access Control and Business Logic</td><td><span class="badge planned">planned</span></td></tr><tr><td>WEB301</td><td>Advanced Server-Side Exploitation</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+<h3>NET: Network and Active Directory</h3><table><tbody><tr><td>NET101</td><td>Network Recon and Service Exploitation</td><td><span class="badge planned">planned</span></td></tr><tr><td>NET201</td><td>Active Directory Attack Paths</td><td><span class="badge planned">planned</span></td></tr><tr><td>NET301</td><td>Kerberos Abuse and Domain Dominance</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+<h3>PWN: Binary Exploitation and Reversing</h3><table><tbody><tr><td>PWN101</td><td>C, Assembly and Stack Overflows</td><td><span class="badge planned">planned</span></td></tr><tr><td>PWN201</td><td>ROP and Mitigation Bypass</td><td><span class="badge planned">planned</span></td></tr><tr><td>PWN301</td><td>Heap Exploitation</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+<h3>CLD: Cloud Security</h3><table><tbody><tr><td>CLD101</td><td>Cloud IAM Fundamentals and Misconfigurations</td><td><span class="badge planned">planned</span></td></tr><tr><td>CLD201</td><td>Privilege Escalation in AWS and OCI</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+<h3>OPS: Red Team Operations</h3><table><tbody><tr><td>OPS101</td><td>Engagement Planning, Scoping and OPSEC</td><td><span class="badge planned">planned</span></td></tr><tr><td>OPS201</td><td>C2 Infrastructure</td><td><span class="badge planned">planned</span></td></tr><tr><td>OPS301</td><td>Evasion and Adversary Emulation</td><td><span class="badge planned">planned</span></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>Transcript: Orgito Leka</h2>
 <table><thead><tr><th>Course</th><th>Passed on</th><th>Shipped (link)</th></tr></thead><tbody></tbody></table>
-<p>A row is added only when the course writeup and its shipped output are public.</p></section>
+<p>A row is added only when the course writeup and its shipped output are public.</p>
+  </section>
 
   <footer>
     For authorized testing and education only. Labs run locally.<br>
