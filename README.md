@@ -25,6 +25,7 @@ New courses start from [`course-template/`](course-template/README.md).
 | Code | Title | Status |
 |------|-------|--------|
 | [AIRT101](AIRT101/README.md) | Prompt Injection and Jailbreak Fundamentals | built, awaiting pass |
+| [WEB101](WEB101/README.md) | HTTP, Recon and the OWASP Top 10 | built, awaiting pass |
 
 The full roadmap across all faculties (WEB, NET, PWN, CLD, AIRT, OPS) is in the [catalog](catalog/README.md).
 

@@ -12,7 +12,7 @@ Status: planned, in progress, passed. Levels: 1xx foundations, 2xx intermediate,
 ## WEB: Web Application Security
 | Course | Title | Status |
 |--------|-------|--------|
-| WEB101 | HTTP, Recon and the OWASP Top 10 | planned |
+| WEB101 | HTTP, Recon and the OWASP Top 10 | built, awaiting pass |
 | WEB201 | Auth, Access Control and Business Logic | planned |
 | WEB301 | Advanced Server-Side Exploitation | planned |
 

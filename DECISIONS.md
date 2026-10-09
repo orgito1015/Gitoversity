@@ -31,3 +31,11 @@ Short log of choices made while building Gitoversity. Newest last.
 - `docs/build.py` (stdlib only) parses `catalog/README.md` and `catalog/TRANSCRIPT.md` and writes a self-contained `docs/index.html` (inline CSS, no Jekyll, no dependencies). Status words render as colored badges; `[label](url)` cells become links; the empty transcript placeholder row is dropped.
 - Serve by enabling GitHub Pages on branch `main`, folder `/docs`. Regenerate after editing the catalog with `python3 docs/build.py`.
 - Skipped a GitHub Actions auto-deploy workflow (the catalog changes rarely); add one if manual regeneration becomes a chore.
+
+## WEB101 (second course, on owner request)
+- Built WEB101 "HTTP, Recon and the OWASP Top 10" to the full course standard: README, six notes, lab, challenge, writeup template.
+- Lab is "NorthWind Notes", a stdlib-only `http.server` app (no DB, no framework, no model), so `docker compose` is a single service and it also runs directly with `python3 app.py`.
+- Two flags: Flag 1 = broken access control / IDOR on `GET /note?id=N` (OWASP A01); Flag 2 = information disclosure at `/internal/config`, discovered via `robots.txt` (OWASP A05). Flags base64-encoded in `.env.example`, SHA-256 in `check_flag.py`.
+- `LEVEL=2` applies real fixes (ownership check, output escaping, security headers) so the defenses lesson has a before/after. Also a no-flag reflected XSS on `/search?q=` for the injection lesson (A03).
+- Verified: both flags reachable by intended attacks at LEVEL 1, both blocked at LEVEL 2, XSS escaped at LEVEL 2, `test_lab.py` 6/6 pass, `check_flag.py` PASS/FAIL correct, no plaintext flags, no em dashes.
+- Updated catalog and the Pages site (now 2 available courses).
