@@ -146,19 +146,19 @@ PAGE = """<!doctype html>
   a:hover {{ text-decoration:underline; }}
   .wrap {{ max-width:940px; margin:0 auto; padding:0 1.5rem 5rem; }}
 
-  header.hero {{ padding:4rem 0 2.5rem; border-bottom:1px solid var(--line); }}
-  .brand {{ display:flex; align-items:center; gap:.9rem; }}
+  header.hero {{ padding:4rem 0 2.5rem; border-bottom:1px solid var(--line); text-align:center; }}
+  .brand {{ display:flex; align-items:center; justify-content:center; gap:.9rem; }}
   .brand img {{ width:56px; height:56px; object-fit:contain; }}
   .brand .word {{ font-size:2rem; font-weight:700; letter-spacing:-.02em; }}
-  .lede {{ font-size:1.25rem; color:var(--muted); max-width:34rem; margin:1.4rem 0 0; line-height:1.5; }}
+  .lede {{ font-size:1.25rem; color:var(--muted); max-width:34rem; margin:1.4rem auto 0; line-height:1.5; }}
   .lede strong {{ color:var(--fg); font-weight:600; }}
-  .cta-row {{ margin-top:1.8rem; display:flex; gap:.7rem; flex-wrap:wrap; }}
+  .cta-row {{ margin-top:1.8rem; display:flex; gap:.7rem; flex-wrap:wrap; justify-content:center; }}
   .btn {{ font-size:.95rem; padding:.6rem 1.2rem; border-radius:8px; border:1px solid var(--line); color:var(--fg); }}
   .btn:hover {{ text-decoration:none; }}
   .btn.primary {{ background:var(--accent); border-color:var(--accent); color:#fff; font-weight:500; }}
   .btn.primary:hover {{ background:#3f7af0; }}
   .btn.ghost:hover {{ border-color:var(--muted); }}
-  .meta {{ margin-top:1.8rem; display:flex; gap:2rem; flex-wrap:wrap; font-size:.9rem; color:var(--muted); }}
+  .meta {{ margin-top:1.8rem; display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; font-size:.9rem; color:var(--muted); }}
   .meta b {{ color:var(--fg); font-family:var(--mono); font-weight:500; }}
 
   section {{ margin-top:3.25rem; }}
