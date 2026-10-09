@@ -190,7 +190,7 @@ PAGE = """<!doctype html>
   .road {{ list-style:none; margin:0; padding:0; }}
   .road li {{ display:flex; gap:.7rem; align-items:baseline; padding:.4rem 0; border-top:1px solid var(--line); font-size:.9rem; }}
   .road li:first-child {{ border-top:none; }}
-  .road .rcode {{ font-family:var(--mono); font-size:.76rem; color:var(--muted); min-width:4.6rem; }}
+  .road .rcode {{ font-family:var(--mono); font-size:.72rem; font-weight:500; letter-spacing:.03em; color:var(--accent); background:var(--accent-soft); padding:.12rem .45rem; border-radius:5px; min-width:4.8rem; text-align:center; }}
   .road .rtitle {{ color:#c6cdda; }}
 
   .transcript-empty {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.3rem 1.4rem; }}
@@ -231,7 +231,7 @@ PAGE = """<!doctype html>
   </section>
 
   <section id="roadmap">
-    <div class="sec-head"><h2>Roadmap</h2><span class="tag">planned</span></div>
+    <div class="sec-head"><h2>Roadmap</h2></div>
     {roadmap}
   </section>
 
